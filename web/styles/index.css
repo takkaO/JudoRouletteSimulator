@@ -1,0 +1,140 @@
+:root {
+    --roulette-background-color: rgb(41, 41, 134);
+    --roulette-width: max(100%, 364px);
+    --roulette-height: 250px;
+}
+.noto-sans-display-roulette {
+    font-family: "Noto Sans Display", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+.roulette {
+    position: absolute;
+    width: var(--roulette-width);
+    height: var(--roulette-height);
+    overflow: hidden;
+    margin: 20px auto;
+}
+
+.original-box-shadow {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #32323200;
+    background-color: #ffffff00;
+    width: var(--roulette-width);
+    height: var(--roulette-height);
+    border-radius: 3px;
+    margin: 20px auto;
+    box-shadow: inset 0px -20px 20px -10px rgba(0, 0, 0, 0.8), inset 0px 20px 20px -10px rgba(0, 0, 0, 0.8);
+}
+
+.roulette-content {
+    display: flex;
+    background-color: var(--roulette-background-color);
+    flex-direction: column;
+    align-items: center;
+
+    animation-fill-mode: forwards; /* アニメーション終了後に最後の状態を維持 */
+}
+
+.roulette-animation {
+    animation: scroll-ready 1s ease-out 1, scroll-start 1s ease-in 1 1s, scroll-normal 0.5s linear 6 2s,
+        scroll-normal 0.7s linear 4 5s, scroll-normal 0.8s linear 1 7.8s, scroll-normal 1.1s linear 1 8.6s,
+        scroll-normal 2.1s linear 1 9.7s, scroll-end 3s ease-out 1 11.8s;
+
+    animation-fill-mode: forwards; /* アニメーション終了後に最後の状態を維持 */
+}
+
+.target {
+    animation: scale 1s ease-in-out 1 15.5s;
+}
+
+.no-target {
+    animation: hide 1s ease-in-out 1 15.5s;
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(100%);
+    }
+    100% {
+        transform: scale(250%);
+    }
+}
+
+@keyframes hide {
+    0% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 30%;
+    }
+}
+
+.item {
+    border: none;
+    font-size: 20pt;
+    padding: 0;
+    text-align: center;
+    align-content: center;
+    height: 60px !important;
+    width: 364px !important;
+
+    animation-fill-mode: forwards; /* アニメーション終了後に最後の状態を維持 */
+}
+
+.item:nth-child(even) {
+    color: rgb(26, 210, 210);
+}
+
+.item:nth-child(odd) {
+    color: violet;
+}
+
+@keyframes scroll-normal {
+    0% {
+        transform: translateY(-50%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes scroll-ready {
+    0% {
+        transform: translateY(-50%);
+    }
+    100% {
+        transform: translateY(-60%);
+    }
+}
+
+@keyframes scroll-end {
+    0% {
+        transform: translateY(-50%);
+    }
+    100% {
+        transform: translateY(-85px);
+    }
+}
+
+@keyframes scroll-start {
+    0% {
+        transform: translateY(-60%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
