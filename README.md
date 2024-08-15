@@ -3,6 +3,10 @@
 例のルーレットのシミュレータです。  
 勢いで作りました。
 
+## Demo
+
+[コチラ](https://takkao.github.io/JudoRouletteSimulator/web/)にデモページがあります。
+
 ## Run localhost
 
 ```bash
